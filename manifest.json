@@ -1,0 +1,32 @@
+{
+   "author": "shaoxinxin",
+   "background": {
+      "persistent": true,
+      "scripts": [ "blocker.js" ]
+   },
+   "browser_action": {
+      "default_icon": "images/icon19.png",
+      "default_popup": "popup.html",
+      "default_title": "HTTP Request Blocker"
+   },
+   "description": "This extension append id to  HTTP Request based on configurable URL patterns.",
+   "homepage_url": "https://github.com/clupasq/ChromeHttpRequestBlocker",
+   "icons": {
+      "128": "images/icon128.png",
+      "16": "images/icon16.png",
+      "48": "images/icon48.png"
+   },
+   "content_scripts": [
+     {
+       "matches": ["http://127.0.0.1/*"], 
+       "js": ["contentScript.js"],
+	   "exclude_matches":["*://*/popup.html"]
+     }
+   ],
+   "manifest_version": 2,
+   "name": "protect",
+   "permissions": [ "webRequest", "webRequestBlocking", "http://*/*", "https://*/*", "storage" ],
+   "short_name": "HTTPRequestBlocker",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.1.1"
+}
